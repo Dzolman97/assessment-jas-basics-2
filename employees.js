@@ -21,7 +21,19 @@
 
 //CODE HERE
 
-// don't have time to finish
+class Employee {
+    constuctor(name, shifts){
+        this.name = name
+        this.shifts = shifts
+    }
+
+    //method
+    getSchedule() {
+        console.log(`${this.name} works on ${this.shifts}`)
+    }
+}
+
+
 
 /*
     Create a new instance of your class.
@@ -35,7 +47,7 @@
 
 //CODE HERE
 
-// don't have time to finish
+const empOne = new Employee('Jess', 'Weekday mornings, Weekday afternoons')
 
 /*
     Call the `getSchedule` method on the
@@ -44,7 +56,7 @@
 
 //CODE HERE
 
-// dont have time to finish
+empOne.getSchedule()
 
 
 /*
@@ -61,7 +73,9 @@
 
 //CODE HERE
 
-// dont have time to finish
+const empTwo = {...empOne, name: 'Nick'} 
+
+
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -88,7 +102,23 @@
 
 //CODE HERE
 
-// odnt have time to finish
+class Manager extends Employee {
+    constructor(name, shifts, employees){
+        super(name, shifts)
+        this.employees = employees
+    }
+
+    getEmployees() {
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+
+    addEmployee(emp) {
+        this.employees.push(emp)
+    }
+
+}
+
+
 
 /*
     Create a new instance of your class.
@@ -103,7 +133,8 @@
 
 //CODE HERE
 
-// dont have time to finish
+const manager = new Manager('Winston', 'weekday mornings and weekday afternoons', ['cece', 'schmidt'])
+
 
 /*
     Call the `getEmployees` method on the
@@ -112,7 +143,7 @@
 
 //CODE HERE
 
-// dont have time to finish
+manager.getEmployees()
 
 /*
     Call the `addEmployee` method on the 
@@ -122,7 +153,7 @@
 
 //CODE HERE 
 
-// dont have time to finish
+manager.addEmployee('Coach')
 
 /*
     Call the `getEmployees` method on the
@@ -132,4 +163,4 @@
 
 //CODE HERE
 
-// dont have time to finish
+manager.getEmployees()

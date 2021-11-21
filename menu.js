@@ -32,14 +32,17 @@
 
 //CODE HERE
 
-let pizza = {
-    name: 'Pepperoni',
-    price: 9.99,
-    category: 'entree',
-    popularity: 8,
-    rating: 9,
-    tags: ['Regular', 'Classic']
-}
+const pizza = [
+    {
+        name: 'Hawaiian Pizza',
+        price: 13.99,
+        category: 'Entree',
+        popularity: 10,
+        rating: 8,
+        tags:  ['family Fav', 'Kids', 'Local fav', 'Extra ham option']
+    }
+]
+
 
 
 
@@ -53,7 +56,7 @@ let pizza = {
 
 //CODE HERE
 
-console.log(pizza.popularity)
+console.log(pizza[0].popularity)
 
 
 /*
@@ -65,7 +68,7 @@ console.log(pizza.popularity)
 
 //CODE HERE
 
-console.log(pizza.tags)
+console.log(pizza[0].tags[1])
 
 
 /*
@@ -77,11 +80,11 @@ console.log(pizza.tags)
 
 //CODE HERE
 
-// let {pizza: price = 13.99} = newPizzaPrice
+const newPrice = 10.99
 
-// console.log(newPizzaPrice)
+pizza[0].price = newPrice
 
-// Coming back to ^^
+// console.log(pizza)
 
 
 /*
@@ -93,12 +96,12 @@ console.log(pizza.tags)
 
 //CODE HERE
 
-// let {pizza: category} = category
+const newCategory = 'Appetizer'
 
-// console.log(category)
+pizza[0].category = newCategory
 
+// console.log(pizza)
 
-// COming back to ^^
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -116,27 +119,41 @@ console.log(pizza.tags)
 
 const foodArr = [
     {
-        name: 'Pasta',
-        price: 15.99,
-        popularity: 9,
-        rating: 9,
-        tags: ['appetizer', 'Spicy', 'Linguini', 'Meat Sauce']
+        name: 'Cheese Pizza',
+        price: 9.99,
+        category: 'Entree',
+        popularity: 10,
+        rating: 10,
+        tags: ['10 out of 10', 'Family fav', 'base option']
     },
     {
-        name: 'Orange Chicken',
-        price: 12.99,
-        popularity: 7,
+        name: 'BBQ chicken',
+        price: 13.99,
+        category: 'Entree',
+        popularity: 8,
         rating: 8,
-        tags: ['Entree', 'Tangy', 'Crispy', 'Comes with sides: rice or noodles']
+        tags: ['Quality Chicken', 'Additional toppings', 'local fav']
     },
     {
-        name: 'Chefs Special',
-        price: 19.99,
+        name: 'Honey BBQ Wings',
+        price: 8.99,
+        category: 'Appetizer',
+        popularity: 6,
+        rating: 8,
+        tags: ['Special Honey Glaze', 'Mothers fav', 'Boneless available']
+    },
+    {
+        name: 'Buffalo Wings',
+        price: 8.99,
+        category: 'Appetizer',
         popularity: 9,
-        rating: 9,
-        tags: ['Entree', 'local favorite']
-    }
+        rating: 8,
+        tags: ['Very own buffalo blend', 'Game night', 'Boneless available']
+    },
+
 ]
+
+
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -152,55 +169,55 @@ const foodArr = [
 
 //CODE HERE
 
-const filteredFood = foodArr.filter(food => foodArr.tags === 'Entree');
+
+const filteredFood = foodArr.filter(wings => wings.tags.includes('Boneless available'))
 
 console.log(filteredFood)
 
-// coming back to
+
 
 //////////////////PROBLEM 5////////////////////
 /* 
-    Now let's write a function that's a little
-    more flexible than just filtering for one
-    value. We want to be able to filter for 
-    food that has above a certain rating, 
+    Now let's write a function that's a little more flexible than just filtering for one value. We want to be able to filter for food that has above a certain rating, 
     below a certain price, or any other combo.
 
-    Write a function called `filterByProperty`
-    that takes in three arguments: `property`, 
-    `number`, and `type. 
+    Write a function called `filterByProperty` that takes in three arguments: `property`, `number`, and `type. 
 
-    The property will be a string (rating,
-    popularity, or price)
+    The property will be a string (rating, popularity, or price)
 
-    The number will be the number that you want
-    to compare against 
+    The number will be the number that you want to compare against 
 
-    The type should be 'above' or 'below' to 
-    indicate whether you want to get foods with
-    values that are above or below the given number
-    for the given property
+    The type should be 'above' or 'below' to indicate whether you want to get foods with values that are above or below the given number for the given property
 
-    Inside the function, create a variable to hold
-    a filtered array
+    Inside the function, create a variable to hold a filtered array
 
     Use the filter method to filter the foodArr
 
-        In the callback, check if the `type` is `above`, 
-        if it is, return objects whose value for the given
-        property is greater than the `number` passed in
+        In the callback, check if the `type` is `above`, if it is, return objects whose value for the given property is greater than the `number` passed in
 
-        If the type is `below`, return objects whose
-        value for the given property is less than the 
-        `number` passed in
+        If the type is `below`, return objects whose value for the given property is less than the `number` passed in
     
     Return the filtered array from the entire function
 */
 
 //CODE HERE
+            // Property = rating , number = price , type = above or below
+const filterByProperty = (property, number, type) => {
+    // const propFilter = foodArr.filter(prop => prop.rating.includes(property)); 
+    // const numFilter = foodArr.filter(num => num.price.includes(number));         // started writing these, but it was getting really confusing to explain the logic in my head, 
+    const filteredArr = foodArr.filter((food) => {                                  /// so i started with the below lines and then had to refernece the review video.
+        if(type === 'above' || type === 'Above'){
+            return food[property] > number
+        }else if (type === 'Below' || type === 'below'){
+            return food[property] < number
+        }
+    })
+    
+    return filteredArr
+}
 
 
-// dont have time to finish
+
 
 /*
     Invoke the `filterByProperty` function passing
@@ -211,4 +228,4 @@ console.log(filteredFood)
 
 //CODE HERE
 
-// don't have time to finish
+console.log(filterByProperty('rating', 9, 'above'))

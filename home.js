@@ -24,10 +24,12 @@
 //CODE HERE
 
 const greetUser = (username) => {
-    return `Welcome back ${username}`
+    return `Welcome back, ${username}`
 }
 
-console.log(greetUser('Daniel Zolman'))
+console.log(greetUser('Daniel'))
+
+
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -51,8 +53,6 @@ console.log(greetUser('Daniel Zolman'))
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
-//CODE HERE
-
 
 const canWeDeliver = (zipcode) => {
     for(let i = 0; i < deliveryAreaZipCodes.length; i++) {
@@ -66,8 +66,19 @@ const canWeDeliver = (zipcode) => {
 }
 
 console.log(canWeDeliver(85205))
+console.log(canWeDeliver(85555))
 
 
+// as a forEach
+
+// const canWeDeliver = zip => {
+//     deliveryAreaZipCodes.forEach(zipcode => {
+//         if(zip === zipcode){
+//             return `You're in our delivery zone!`
+//         }
+//     })
+//     return `Sorry, we can't deliver to that address`
+// }
 
 /* 
     Problem 2 Continued
@@ -97,6 +108,7 @@ const canWeDeliverTwo = (zipcode) => {
 }
 
 console.log(canWeDeliverTwo(85555))
+
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -133,14 +145,9 @@ const deals = [
 
 //CODE HERE
 
-// const replaceDealTitle = (str) => {
-//     deals.replace('15% Off!', str)
-//     return deals
-// }
+ deals[0].title = deals[0].title.replace('15', '10')
 
-// console.log(replaceDealTitle('10% Off!'))
-
-// will come back ^^
+//  console.log(deals)
 
 
 /*
@@ -158,4 +165,6 @@ const deals = [
 
 //CODE HERE
 
-// Coming back ^^
+deals[1].desc = deals[1].desc.replace('   This', 'This').replace('March! ', 'April!')   // can also use .trim()//
+
+console.log(deals)

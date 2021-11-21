@@ -35,13 +35,15 @@ const cart = [
 
 //CODE HERE
 
-let sumOfAll = cart.map(cart => cart.price)
+const cartTotal = cart.reduce(function(prevPrice, currItem) {return prevPrice + currItem.price}, 0);
 
-console.log(sumOfAll)
+console.log(cartTotal)
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+// cart.reduce((prevPrice, currPrice) => ({price: prevPrice.price + currPrice.price}));
 
-// coming back to
+
+
+
 
 
 //////////////////PROBLEM 2////////////////////
@@ -61,7 +63,16 @@ console.log(sumOfAll)
 
 //CODE HERE
 
-// dont have time to finish.
+const calcFinalPrice = (incartTotal, couponValue, tax) => {
+    let newcartTotal = incartTotal * (1 + tax);
+    if(couponValue = true) {
+        return newcartTotal - couponValue
+    }
+    return newcartTotal
+}
+
+console.log(calcFinalPrice(cartTotal, 5, .075))
+
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -84,7 +95,14 @@ console.log(sumOfAll)
 */
 
 /*
-    TEXT ANSWER HERE  // dont have time to finish
+    customer obj items
+    
+    name: (String)
+    regular: Is this customer a regualr? (Bool)
+    favMeal: most ordered object. only applicable if the customer has come more than once, (string)
+    avgSpent: What is the average amount they spend. only applicable if the customer has come more than once, (number)
+    Phone: (string)
+
 
 */
 
@@ -93,6 +111,10 @@ console.log(sumOfAll)
     guidelines.
 */
 
-//CODE HERE
-
-// don't have time to finish
+const customer = {
+    name: 'Daniel',
+    regular: true,
+    favMeal: 'Box Combo, sub coleslaw for toast, toast bobbed',
+    avgSpent: 18.76,
+    phone: '442-555-5555'
+}
